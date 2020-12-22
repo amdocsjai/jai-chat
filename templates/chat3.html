@@ -1,0 +1,34 @@
+<html>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        table.center {
+          margin-left: auto; 
+          margin-right: auto;
+        }
+    </style>
+   <body>
+     <h1>Hi {{ result[0] }} !!!</h1>
+    <table border = 0>
+        {% for value in result %}
+           <tr>
+                {% if value.lower().find(result[0].lower()) > -1  %}
+                    <td align = "right" style="background-color: #00a2ff"> {{ value }} </td>
+                {% else %}
+                    <td> {{ value }} </td>
+                {% endif %}
+           </tr>
+        {% endfor %}
+     </table>
+
+     <form action = "http://localhost:5000/chat3" method = "POST">
+        <p>Name <input type = "text" name = "msg" /></p>
+        <p><input type = "submit" value = "submit" /></p>
+     </form>
+
+    </body>
+</html>
